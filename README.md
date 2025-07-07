@@ -27,14 +27,14 @@ A comprehensive, production-ready Cloudflare Worker backend API for a public blo
 ### Setup
 
 1. **Clone and install dependencies:**
-   \`\`\`bash
+   ```bash
    git clone <your-repo>
    cd cloudflare-blog-api
    npm install
-   \`\`\`
+   ```
 
 2. **Create Cloudflare resources:**
-   \`\`\`bash
+   ```bash
    # Create D1 database
    npm run db:create
    
@@ -43,27 +43,27 @@ A comprehensive, production-ready Cloudflare Worker backend API for a public blo
    
    # Create R2 bucket
    npm run r2:create
-   \`\`\`
+   ```
 
 3. **Update wrangler.toml** with your resource IDs from the previous step.
 
 4. **Set up environment variables:**
    Create a `.dev.vars` file:
-   \`\`\`
+   ```
    JWT_SECRET=your-super-secret-jwt-key
    ADMIN_API_KEY=your-admin-api-key
-   \`\`\`
+   ```
 
 5. **Initialize database:**
-   \`\`\`bash
+   ```bash
    npm run db:migrate:local  # For local development
    npm run db:migrate        # For production
-   \`\`\`
+   ```
 
 6. **Start development server:**
-   \`\`\`bash
+   ```bash
    npm run dev
-   \`\`\`
+   ```
 
 ## API Endpoints
 
@@ -154,14 +154,14 @@ The API uses the following main tables:
 ## Deployment
 
 ### Staging
-\`\`\`bash
+```bash
 npm run deploy:staging
-\`\`\`
+```
 
 ### Production
-\`\`\`bash
+```bash
 npm run deploy:production
-\`\`\`
+```
 
 ## Environment Variables
 
@@ -172,25 +172,25 @@ Required environment variables:
 ## Development
 
 ### Local Development
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 ### Database Migrations
-\`\`\`bash
+```bash
 npm run db:migrate:local  # Local
 npm run db:migrate        # Remote
-\`\`\`
+```
 
 ### Monitoring
-\`\`\`bash
+```bash
 npm run tail  # View real-time logs
-\`\`\`
+```
 
 ## API Usage Examples
 
 ### Create a Post
-\`\`\`bash
+```bash
 curl -X POST https://your-worker.your-subdomain.workers.dev/api/posts \
   -H "Authorization: Bearer YOUR_JWT_TOKEN" \
   -H "Content-Type: application/json" \
@@ -202,19 +202,19 @@ curl -X POST https://your-worker.your-subdomain.workers.dev/api/posts \
     "author_id": 1,
     "tags": ["technology", "web development"]
   }'
-\`\`\`
+```
 
 ### Search Posts
-\`\`\`bash
+```bash
 curl "https://your-worker.your-subdomain.workers.dev/api/search?q=javascript&page=1&limit=10"
-\`\`\`
+```
 
 ### Upload Media
-\`\`\`bash
+```bash
 curl -X POST https://your-worker.your-subdomain.workers.dev/api/media/upload \
   -H "X-API-Key: YOUR_API_KEY" \
   -F "file=@image.jpg"
-\`\`\`
+```
 
 ## Performance Considerations
 
